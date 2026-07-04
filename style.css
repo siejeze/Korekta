@@ -1,0 +1,239 @@
+/* ============================================================
+   Ostatnie Oko — klimat redakcyjnego biurka
+   ============================================================ */
+
+:root {
+  --papier: #f3eee2;
+  --karta: #fbf8f0;
+  --atrament: #2d271e;
+  --przygaszony: #6f6654;
+  --linia: #d8cfba;
+  --akcent: #8c3b2e;        /* spokojna czerwień — pewne */
+  --akcent-tlo: #f5e4df;
+  --bursztyn: #9a6c14;      /* heurystyki */
+  --bursztyn-tlo: #f3e8cf;
+  --zielen: #4c6b3c;
+  --zielen-tlo: #e3ead9;
+  --mark: #f0d9a8;
+  --szeryf: Georgia, 'Palatino Linotype', 'Times New Roman', serif;
+  --mono: Consolas, 'Courier New', monospace;
+}
+html[data-motyw="ciemny"] {
+  --papier: #211d15;
+  --karta: #2b2619;
+  --atrament: #e9e1cd;
+  --przygaszony: #a89c82;
+  --linia: #46402f;
+  --akcent: #d4715f;
+  --akcent-tlo: #46281f;
+  --bursztyn: #d3a545;
+  --bursztyn-tlo: #3d3115;
+  --zielen: #93b578;
+  --zielen-tlo: #2c3a20;
+  --mark: #6b5a26;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--papier);
+  color: var(--atrament);
+  font-family: var(--szeryf);
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+main { max-width: 1240px; margin: 0 auto; padding: 0 1.2rem 3rem; }
+
+h1, h2, h3 { font-family: var(--szeryf); font-weight: 600; }
+h1 { font-size: 2.4rem; margin: 0 0 .3rem; letter-spacing: .02em; }
+h2 { font-size: 1.35rem; margin: 0 0 .8rem; border-bottom: 1px solid var(--linia); padding-bottom: .45rem; }
+h3 { font-size: 1.05rem; margin: 0 0 .5rem; }
+
+.ukryte { display: none !important; }
+
+/* ---------- Nagłówek ---------- */
+.naglowek {
+  max-width: 1240px; margin: 0 auto; padding: 2rem 1.2rem 1.4rem;
+  display: flex; align-items: flex-start; gap: 1rem;
+}
+.naglowek-tekst { flex: 1; }
+.podtytul { margin: 0 0 .6rem; color: var(--przygaszony); font-style: italic; }
+.prywatnosc {
+  margin: 0; font-size: .9rem; color: var(--przygaszony);
+  border-left: 3px solid var(--linia); padding-left: .7rem;
+}
+.btn-motyw {
+  background: var(--karta); border: 1px solid var(--linia); color: var(--atrament);
+  font-size: 1.2rem; border-radius: 8px; padding: .45rem .7rem; cursor: pointer;
+}
+.btn-motyw:hover { border-color: var(--przygaszony); }
+
+/* ---------- Karty i przyciski ---------- */
+.karta {
+  background: var(--karta); border: 1px solid var(--linia); border-radius: 10px;
+  padding: 1.3rem 1.5rem; margin-bottom: 1.4rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,.06);
+}
+.btn {
+  font-family: var(--szeryf); font-size: .95rem; border-radius: 7px;
+  padding: .55rem 1.1rem; cursor: pointer; border: 1px solid var(--linia);
+}
+.btn-glowny { background: var(--atrament); color: var(--papier); border-color: var(--atrament); }
+.btn-glowny:hover { opacity: .88; }
+.btn-glowny:disabled { opacity: .45; cursor: default; }
+.btn-drugi { background: var(--karta); color: var(--atrament); }
+.btn-drugi:hover { border-color: var(--przygaszony); }
+.pasek-akcji { display: flex; gap: .7rem; margin-top: 1rem; flex-wrap: wrap; }
+
+.objasnienie { color: var(--przygaszony); font-size: .93rem; }
+
+/* ---------- Wejście ---------- */
+.pasek-wejscia { display: flex; align-items: center; gap: .9rem; margin-bottom: .8rem; flex-wrap: wrap; }
+.pasek-wejscia .btn { display: inline-block; }
+.nazwa-pliku { font-size: .88rem; color: var(--przygaszony); font-style: italic; }
+.licznik { margin-left: auto; font-size: .88rem; color: var(--przygaszony); font-variant-numeric: tabular-nums; }
+#tekst {
+  width: 100%; min-height: 320px; resize: vertical;
+  background: var(--papier); color: var(--atrament);
+  border: 1px solid var(--linia); border-radius: 8px;
+  font-family: var(--mono); font-size: .88rem; line-height: 1.6;
+  padding: .9rem;
+}
+#tekst:focus { outline: 2px solid var(--przygaszony); outline-offset: -1px; }
+
+/* ---------- Karta konwencji ---------- */
+.siatka-konwencji {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1rem; margin-top: 1rem;
+}
+.pole-konwencji {
+  border: 1px solid var(--linia); border-radius: 8px; padding: .8rem .9rem;
+  background: var(--papier);
+}
+.pole-konwencji label { display: block; font-size: .85rem; color: var(--przygaszony); margin-bottom: .35rem; }
+.pole-konwencji select {
+  width: 100%; font-family: var(--szeryf); font-size: .95rem;
+  background: var(--karta); color: var(--atrament);
+  border: 1px solid var(--linia); border-radius: 6px; padding: .4rem;
+}
+.statystyka { display: block; margin-top: .4rem; font-size: .78rem; color: var(--przygaszony); }
+
+/* ---------- Postęp ---------- */
+.pasek-postepu {
+  height: 14px; background: var(--papier); border: 1px solid var(--linia);
+  border-radius: 7px; overflow: hidden;
+}
+#postep-wypelnienie {
+  height: 100%; width: 0%; background: var(--akcent); transition: width .15s ease;
+}
+
+/* ---------- Wyniki ---------- */
+.pasek-wynikow { margin-bottom: 1rem; }
+.suma { font-size: .95rem; color: var(--przygaszony); font-weight: 400; }
+.pasek-akcji-wynikow { margin-top: .2rem; }
+.filtry { margin-top: 1rem; display: flex; flex-direction: column; gap: .5rem; }
+.filtry-grupa { display: flex; flex-wrap: wrap; gap: .4rem .9rem; align-items: center; font-size: .88rem; }
+.filtr-kat {
+  display: inline-flex; align-items: center; gap: .3rem;
+  background: var(--papier); border: 1px solid var(--linia);
+  border-radius: 20px; padding: .18rem .7rem; cursor: pointer; user-select: none;
+}
+.filtr-kat input { accent-color: var(--akcent); }
+.filtr-radio, .filtr-opcja { display: inline-flex; align-items: center; gap: .35rem; color: var(--przygaszony); }
+.filtr-radio input, .filtr-opcja input { accent-color: var(--akcent); }
+.filtr-opcja select {
+  font-family: var(--szeryf); font-size: .85rem; background: var(--karta);
+  color: var(--atrament); border: 1px solid var(--linia); border-radius: 5px; padding: .15rem .3rem;
+}
+
+.uklad-wynikow {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1.2rem;
+  align-items: start;
+}
+@media (max-width: 980px) { .uklad-wynikow { grid-template-columns: 1fr; } }
+
+.lista-znalezisk { display: flex; flex-direction: column; gap: .9rem; }
+
+details.grupa-kat {
+  background: var(--karta); border: 1px solid var(--linia); border-radius: 10px;
+  padding: .2rem .9rem;
+}
+details.grupa-kat summary {
+  cursor: pointer; font-weight: 600; padding: .55rem 0; list-style-position: inside;
+}
+details.grupa-kat summary .ile { color: var(--przygaszony); font-weight: 400; font-size: .88rem; }
+
+.znalezisko {
+  border-left: 3px solid var(--akcent);
+  background: var(--papier); border-radius: 0 8px 8px 0;
+  padding: .6rem .8rem; margin: 0 0 .6rem;
+}
+.znalezisko.heurystyka { border-left-color: var(--bursztyn); }
+.znalezisko.zalatwione { opacity: .55; }
+.znalezisko-naglowek { display: flex; gap: .5rem; align-items: baseline; flex-wrap: wrap; }
+.znalezisko-nazwa { font-weight: 600; font-size: .9rem; }
+.badge {
+  font-size: .72rem; padding: .05rem .5rem; border-radius: 10px; white-space: nowrap;
+}
+.badge-pewne { background: var(--akcent-tlo); color: var(--akcent); }
+.badge-heur { background: var(--bursztyn-tlo); color: var(--bursztyn); }
+.badge-status { background: var(--zielen-tlo); color: var(--zielen); }
+.znalezisko-opis { font-size: .84rem; color: var(--przygaszony); margin: .15rem 0; }
+.znalezisko-kontekst {
+  font-family: var(--mono); font-size: .8rem; line-height: 1.5;
+  background: var(--karta); border: 1px solid var(--linia); border-radius: 6px;
+  padding: .45rem .6rem; margin: .35rem 0; white-space: pre-wrap; word-break: break-word;
+  cursor: pointer;
+}
+.znalezisko-kontekst:hover { border-color: var(--przygaszony); }
+.znalezisko-kontekst mark { background: var(--mark); color: inherit; border-radius: 3px; padding: 0 1px; }
+.zamiana-wiersz { font-size: .85rem; margin: .2rem 0 .4rem; }
+.zamiana-wiersz code {
+  font-family: var(--mono); background: var(--karta); border: 1px solid var(--linia);
+  border-radius: 4px; padding: 0 .3rem; white-space: pre-wrap;
+}
+.znalezisko-przyciski { display: flex; gap: .5rem; }
+.btn-maly {
+  font-family: var(--szeryf); font-size: .8rem; padding: .25rem .7rem;
+  border-radius: 5px; cursor: pointer; border: 1px solid var(--linia);
+}
+.btn-akceptuj { background: var(--zielen-tlo); color: var(--zielen); border-color: var(--zielen); }
+.btn-akceptuj:hover { filter: brightness(.96); }
+.btn-odrzuc { background: var(--karta); color: var(--przygaszony); }
+.btn-zalatwione { background: var(--karta); color: var(--zielen); border-color: var(--zielen); }
+.btn-zalatwione:hover { background: var(--zielen-tlo); }
+.znalezisko-nota { font-size: .78rem; color: var(--przygaszony); font-style: italic; margin: .25rem 0 0; }
+.btn-wiecej { margin: .2rem 0 .7rem; }
+
+/* ---------- Podgląd ---------- */
+.podglad-kontener { position: sticky; top: 1rem; }
+.podglad {
+  font-family: var(--mono); font-size: .8rem; line-height: 1.6;
+  max-height: 72vh; overflow: auto; margin: 0;
+  background: var(--papier); border: 1px solid var(--linia); border-radius: 8px;
+  padding: .8rem; white-space: pre-wrap; word-break: break-word;
+}
+.podglad mark {
+  background: var(--mark); color: inherit; border-radius: 3px;
+  outline: 2px solid var(--bursztyn);
+}
+
+/* ---------- Testy ---------- */
+.testy-podsumowanie { font-weight: 600; }
+.tabela-testow { width: 100%; border-collapse: collapse; font-size: .85rem; }
+.tabela-testow th, .tabela-testow td {
+  border: 1px solid var(--linia); padding: .4rem .6rem; text-align: left; vertical-align: top;
+}
+.tabela-testow th { background: var(--papier); }
+.tabela-testow td.ok { color: var(--zielen); font-weight: 700; }
+.tabela-testow td.fail { color: var(--akcent); font-weight: 700; }
+.tabela-testow .zdanie { font-family: var(--mono); font-size: .78rem; color: var(--przygaszony); display: block; }
+
+/* ---------- Stopka ---------- */
+.stopka {
+  max-width: 1240px; margin: 0 auto; padding: 1.2rem;
+  border-top: 1px solid var(--linia);
+  color: var(--przygaszony); font-size: .88rem; font-style: italic;
+}
